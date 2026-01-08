@@ -1,0 +1,32 @@
+services:
+  # Backend Service
+  - type: web
+    name: sportshub-backend
+    env: node
+    plan: free
+    buildCommand: cd Backend && npm install
+    startCommand: cd Backend && npm start
+    envVars:
+      - key: NODE_ENV
+        value: production
+      - key: PORT
+        value: 10000
+      - key: FRONTEND_URL
+        sync: false  # Will be set to frontend URL after deployment
+      - key: GOOGLE_CLIENT_EMAIL
+        sync: false  # Set in Render dashboard
+      - key: GOOGLE_PRIVATE_KEY
+        sync: false  # Set in Render dashboard
+      - key: GOOGLE_SHEET_ID
+        sync: false  # Set in Render dashboard
+
+  # Frontend Service
+  - type: web
+    name: sportshub-frontend
+    env: static
+    buildCommand: cd Frontend && npm install && npm run build
+    staticPublishPath: Frontend/dist
+    envVars:
+      - key: VITE_API_URL
+        sync: false  # Will be set to backend URL after deployment
+

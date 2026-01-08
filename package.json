@@ -1,0 +1,22 @@
+{
+  "name": "sports-hub-app",
+  "version": "1.0.0",
+  "description": "SportsHub - Sports Tournament Platform",
+  "scripts": {
+    "dev:backend": "cd Backend && npm start",
+    "dev:frontend": "cd Frontend && npm run dev",
+    "install:all": "cd Backend && npm install && cd ../Frontend && npm install",
+    "start:backend": "cd Backend && npm start",
+    "start:frontend": "cd Frontend && npm run dev"
+  },
+  "keywords": [
+    "sports",
+    "tournament",
+    "react",
+    "express"
+  ],
+  "author": "",
+  "license": "MIT"
+}
+
+
