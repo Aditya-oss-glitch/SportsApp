@@ -13,5 +13,10 @@ export default defineConfig({
         changeOrigin: true,
       }
     }
+  },
+  // Ensure proper routing for production builds
+  build: {
+    outDir: 'dist',
+    assetsDir: 'assets',
   }
 })

@@ -50,6 +50,27 @@ app.use((req, res, next) => {
   next();
 });
 
+// Root endpoint - API information
+app.get("/", (req, res) => {
+  res.json({ 
+    message: "SportsHub API",
+    version: "1.0.0",
+    status: "running",
+    endpoints: {
+      health: "/health",
+      api: "/api",
+      register: "/api/register",
+      teams: "/api/teams",
+      tournaments: "/api/tournaments",
+      sports: "/api/sports",
+      partners: "/api/partners",
+      admin: "/api/admin",
+      captains: "/api/captains"
+    },
+    timestamp: new Date().toISOString()
+  });
+});
+
 // Health check endpoint
 app.get("/health", (req, res) => {
   res.json({ 
